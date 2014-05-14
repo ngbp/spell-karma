@@ -1,0 +1,76 @@
+{
+  "name": "warlock-spell-karma",
+  "version": "1.0.0-alpha.1",
+  "description": "An addon to add Karma unit testing support to the Warlock spell for managing client-side webapps.",
+  "homepage": "https://github.com/ngbp/spell-karma",
+  "author": {
+    "name": "Warlock Team",
+    "url": "http://getwarlock.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ngbp/spell-karma.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ngbp/spell-karma"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/ngbp/spell-karma/blob/master/LICENSE"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "keywords": [
+    "warlockplugin",
+    "warlockspell"
+  ],
+  "warlock": {
+    "globs": {
+      "source": {
+        "test": [
+          "<%= paths.source_app %>/**/*.spec.js"
+        ]
+      },
+      "vendor": {
+        "test": []
+      }
+    },
+    "tasks": {
+      "karma": {
+        "single-run": {
+          "port": 9018,
+          "runnerPort": 9100,
+          "urlRoot": "/",
+          "frameworks": [
+            "jasmine"
+          ],
+          "preprocessors": [
+            "karma-jasmine",
+            "karma-firefox-launcher",
+            "karma-chrome-launcher",
+            "karma-phantomjs-launcher"
+          ],
+          "reporters": "progress",
+          "logLevel": "WARN",
+          "singleRun": 1,
+          "autoWatch": 0
+        }
+      }
+    }
+  },
+  "peerDependencies": {
+    "warlock-spell-webapp": ">=1.0.0-alpha.2"
+  },
+  "dependencies": {
+    "glob-stream": "^3.1.9",
+    "karma": "~0.12",
+    "karma-chrome-launcher": "~0.1",
+    "karma-firefox-launcher": "~0.1",
+    "karma-jasmine": "~0.1",
+    "karma-phantomjs-launcher": "~0.1",
+    "vinyl": "^0.2.3"
+  }
+}
