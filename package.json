@@ -53,6 +53,9 @@
             "karma-chrome-launcher",
             "karma-phantomjs-launcher"
           ],
+          "browsers": [
+            "PhantomJS"
+          ],
           "reporters": "progress",
           "logLevel": "WARN",
           "singleRun": 1,
