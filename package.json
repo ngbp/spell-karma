@@ -31,7 +31,8 @@
     "globs": {
       "source": {
         "test": [
-          "<%= paths.source_app %>/**/*.spec.js"
+          "<%= paths.source_app %>/**/*.spec.js",
+          "<%= paths.source_app %>/**/*.spec.coffee"
         ]
       },
       "vendor": {
@@ -51,7 +52,8 @@
             "karma-jasmine",
             "karma-firefox-launcher",
             "karma-chrome-launcher",
-            "karma-phantomjs-launcher"
+            "karma-phantomjs-launcher",
+            "karma-coffee-preprocessor"
           ],
           "reporters": "progress",
           "logLevel": "WARN",
@@ -71,6 +73,7 @@
     "karma-firefox-launcher": "~0.1",
     "karma-jasmine": "~0.1",
     "karma-phantomjs-launcher": "~0.1",
-    "vinyl": "^0.2.3"
+    "vinyl": "^0.2.3",
+    "karma-coffee-preprocessor": "~0.2.1"
   }
 }
