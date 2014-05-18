@@ -51,6 +51,12 @@
           "preprocessors": {
             "**/*.coffee": ["coffee"]
           },
+          "coffeePreprocessor": {
+            "options": {
+              "bare": true,
+              "sourceMap": true
+            }
+          },
           "reporters": "progress",
           "logLevel": "WARN",
           "singleRun": 1,
