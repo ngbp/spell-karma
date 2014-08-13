@@ -1,7 +1,8 @@
-karma = require "karma"
 globStream = require "glob-stream"
 webappSpell = require "warlock-spell-webapp"
 File = require "vinyl"
+spawn = require( 'child_process' ).spawn
+path = require 'path'
 
 module.exports = ( warlock ) ->
   warlock.flow 'karma-get-vendor',
@@ -39,7 +40,14 @@ module.exports = ( warlock ) ->
   startKarmaServer = warlock.streams.highland.wrapCallback ( options, callback ) ->
     run = ( opts ) ->
       warlock.log.log "Starting Karma Server."
-      karma.server.start opts, ( code ) ->
+      json = JSON.stringify opts
+      karma = spawn 'node', [
+        path.join( __dirname, '..', 'lib', 'background.js' )
+        json
+      ], { stdio: 'inherit' }
+
+      karma.on 'exit', ( code ) ->
+        karma.kill() if karma
         callback null, code
 
     # To ensure the config file *overwrites* any default configuration settings, we load it
